@@ -1,6 +1,6 @@
 (require 'package)
 (setq package-enable-at-startup nil)
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+(let* ((no-ssl (and (eq system-type 'windows-nt)
 		    (not (gnutls-available-p))))
        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
   (add-to-list 'package-archives (cons "melpa" url) t))
@@ -45,6 +45,7 @@
   :config
   (setq nlinum-highlight-current-line t)
   (global-nlinum-mode t)
+  ;; Add more space before a line begins. Fixes issue with Org mode going out of line
   (setq nlinum-format "%d "))
 
 ;; Display the column number for the position of the cursor
@@ -53,14 +54,17 @@
 ;; Remove the scroll bar
 (scroll-bar-mode -1)
 
+
 ;; Org mode
 ;; Org-bullets
 (use-package org-bullets
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+
 ;; Magit a git porcelain
 (use-package magit)
+
 
 ;; Keybindings
 ;; Add move commands to C + s + ijkl
@@ -68,7 +72,35 @@
 (global-set-key (kbd "C-s-j") 'backward-char)
 (global-set-key (kbd "C-s-k") 'next-line)
 (global-set-key (kbd "C-s-i") 'previous-line)
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
  
+;; Enter debug mode on error
+(setq debug-on-error t)
+
+
+;; Python
+;; Default python shell is ipython if it can be found
+(when (executable-find "ipython")
+  (setq python-shell-interpreter "ipython"
+	python-shell-interpreter-args "-i"))
+
+;; Virtual environment management
+(use-package pyvenv)
+(if (eq system-type 'windows-nt)
+    (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs")))
+(pyvenv-mode 1)
+
+
+;; Custom functions	   
+(defun open-init-file ()
+  (interactive)
+  (find-file user-init-file))
+	      
+	    
+	    
 ;; This section is generated automatically by emacs
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
