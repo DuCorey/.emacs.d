@@ -51,8 +51,7 @@
   (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
-  ;; (doom-themes-neotree-config)
-  )
+  (doom-themes-neotree-config))
 
 
 ;; ShowParenMode
