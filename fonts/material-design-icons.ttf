@@ -1,0 +1,4 @@
+closed
+WARNING: can't open config file: /z/extlib/_openssl__/ssl/openssl.cnf
+depth=1 C = US, O = DigiCert Inc, OU = www.digicert.com, CN = DigiCert SHA2 Extended Validation Server CA
+verify error:num=20:unable to get local issuer certificate

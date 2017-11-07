@@ -9,21 +9,36 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+
+;; Enter debug mode on error
+(setq debug-on-error t)
+
+
+;; Custom functions	   
+(defun open-init-file ()
+  (interactive)
+  (find-file user-init-file))
+
+
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
+
 ;; Global ensure for use-package
 (setq use-package-always-ensure t)
 
+
 ;; Try package let's you try out a package before installing it
 (use-package try)
+
 
 ;; Which key shows you available key prompts
 (use-package which-key
   :config
   (which-key-mode))
+
 
 ;; Doom-theme changes the look of Emacs to Atom's one dark
 (use-package doom-themes
@@ -34,11 +49,16 @@
   (setq doom-one-padded-modeline t)     ; Adds a 4px padding to the mode-line. Can be an integer to determine the exact padding.
   :config
   (load-theme 'doom-one t)
-  (doom-themes-visual-bell-config))
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  ;; (doom-themes-neotree-config)
+  )
+
 
 ;; ShowParenMode
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+
 
 ;; Display the line number for every file
 (use-package nlinum
@@ -48,8 +68,10 @@
   ;; Add more space before a line begins. Fixes issue with Org mode going out of line
   (setq nlinum-format "%d "))
 
+
 ;; Display the column number for the position of the cursor
 (setq column-number-mode t)
+
 
 ;; Remove the scroll bar
 (scroll-bar-mode -1)
@@ -77,10 +99,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
  
-;; Enter debug mode on error
-(setq debug-on-error t)
-
-
 ;; Python
 ;; Default python shell is ipython if it can be found
 (when (executable-find "ipython")
@@ -94,13 +112,10 @@
 (pyvenv-mode 1)
 
 
-;; Custom functions	   
-(defun open-init-file ()
-  (interactive)
-  (find-file user-init-file))
-	      
-	    
-	    
+;; Neotree browser
+(use-package neotree)
+
+
 ;; This section is generated automatically by emacs
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
