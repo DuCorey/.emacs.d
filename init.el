@@ -105,14 +105,17 @@
 	python-shell-interpreter-args "-i"))
 
 ;; Virtual environment management
-(use-package pyvenv)
-(if (eq system-type 'windows-nt)
+(use-package pyvenv
+  :config
+  (if (eq system-type 'windows-nt)
     (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs")))
-(pyvenv-mode 1)
+  (pyvenv-mode 1))
 
 
 ;; Neotree browser
-(use-package neotree)
+(use-package neotree
+  :config
+  (setq inhibit-compacting-font-caches t))
 
 
 ;; This section is generated automatically by emacs
