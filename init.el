@@ -97,6 +97,9 @@
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; Neotree
+(global-set-key [f5] 'neotree-toggle)
+
  
 ;; Python
 ;; Default python shell is ipython if it can be found
