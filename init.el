@@ -109,9 +109,9 @@
 
 ;; Virtual environment management
 (use-package pyvenv
+  :if (eq system-type 'windows-nt)
   :config
-  (if (eq system-type 'windows-nt)
-    (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs")))
+  (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs"))
   (pyvenv-mode 1))
 
 
@@ -119,6 +119,15 @@
 (use-package neotree
   :config
   (setq inhibit-compacting-font-caches t))
+
+
+;; Company-mode autocomplete
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3))
 
 
 ;; This section is generated automatically by emacs
