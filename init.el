@@ -89,10 +89,16 @@
 
 ;; Keybindings
 ;; Add move commands to C + s + ijkl
+(global-set-key (kbd "C-s-i") 'previous-line)
 (global-set-key (kbd "C-s-l") 'forward-char)
 (global-set-key (kbd "C-s-j") 'backward-char)
 (global-set-key (kbd "C-s-k") 'next-line)
-(global-set-key (kbd "C-s-i") 'previous-line)
+
+;; Change windows button to super key when running emacs on windows
+(if (eq system-type 'windows-nt)
+  (setq w32-pass-lwindow-to-system nil
+        w32-lwindow-modifier 'super)) ; left Windows key
+
 
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
