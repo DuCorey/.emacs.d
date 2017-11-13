@@ -138,6 +138,17 @@
   (setq company-minimum-prefix-length 3))
 
 
+;; Start screen dashboard
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
+
+
+;; Projectile project management
+(use-package projectile)
+
+
 ;; This section is generated automatically by emacs
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
