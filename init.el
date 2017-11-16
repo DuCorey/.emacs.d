@@ -135,10 +135,11 @@
   (pyvenv-mode 1))
 
 
-;; Neotree browser
+;; Neotree file browser
 (use-package neotree
   :config
-  (setq inhibit-compacting-font-caches t))
+  (setq inhibit-compacting-font-caches t)
+  (setq-default neo-show-hidden-files t))
 
 
 ;; Company-mode autocomplete
