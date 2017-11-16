@@ -20,7 +20,7 @@
   (find-file user-init-file))
 
 
-;; Bootstrap `use-package'
+;; Bootstrap 'use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -77,12 +77,17 @@
 
 
 ;; Org mode
-(use-package org)
+(use-package org
+  :config
+  ;; Line wrapping in org mode
+  (add-hook 'org-mode-hook (lambda ()
+			     (visual-line-mode)
+			     (org-indent-mode))))
 
 ;; Org-bullets
 (use-package org-bullets
   :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))	     
 
 
 ;; Magit a git porcelain
