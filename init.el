@@ -115,10 +115,17 @@
 
  
 ;; Python
-;; Default python shell is ipython if it can be found
-(when (executable-find "ipython")
-  (setq python-shell-interpreter "ipython"
-	python-shell-interpreter-args "-i"))
+;; Open an IPython repl
+(defun run-ipython ()
+  (interactive)
+  (if (executable-find "ipython")
+      (progn
+	(run-python "ipython -i")
+	(let ((w (split-window-horizontally)))
+	  (set-window-buffer w "*Python*")))
+    (progn
+      (ding)
+      (message "Could not find IPython in environment %s" pyvenv-virtual-env-name))))
 
 ;; Virtual environment management
 (use-package pyvenv
