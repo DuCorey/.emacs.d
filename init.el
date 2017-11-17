@@ -20,6 +20,11 @@
   (find-file user-init-file))
 
 
+;; Fix C-i being the same as tab
+(setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
+(define-key input-decode-map "\C-i" [C-i])
+
+
 ;; Bootstrap 'use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -86,6 +91,7 @@
 
 ;; Org-bullets
 (use-package org-bullets
+  :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))	     
 
@@ -110,11 +116,16 @@
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+
 ;; Neotree
 (global-set-key [f5] 'neotree-toggle)
 
  
 ;; Python
+(use-package python
+  :config
+  (define-key python-mode-map (kbd "C-c <C-i>") 'run-ipython))
+
 ;; Open an IPython repl
 (defun run-ipython ()
   (interactive)
@@ -159,6 +170,10 @@
 
 ;; Projectile project management
 (use-package projectile)
+
+
+  ;; Refresh git gutter
+  (setq git-gutter:update-interval 0.2))
 
 
 ;; Set custom file that is modified automatically by customization done through emacs
