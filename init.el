@@ -233,7 +233,16 @@ Examples:
   ;; Refresh git gutter
   (setq git-gutter:update-interval 0.2))
 
+
+;; Emacs IPython Notebook. Jupyter Jupter notebook integration
 (use-package ein)
+
+
+;; Expand region
+(use-package expand-region
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region))
+
 
 ;; Set custom file that is modified automatically by customization done through emacs
 (setq custom-file "~/.emacs.d/custom.el")

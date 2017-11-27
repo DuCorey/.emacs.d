@@ -6,7 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ox-latex-chinese org haskell-mode nlinum which-key try use-package doom-themes)))
+    (restart-emacs expand-region ox-latex-chinese org haskell-mode nlinum which-key try use-package doom-themes)))
  '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
