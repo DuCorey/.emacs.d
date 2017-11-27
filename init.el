@@ -233,6 +233,7 @@ Examples:
   ;; Refresh git gutter
   (setq git-gutter:update-interval 0.2))
 
+(use-package ein)
 
 ;; Set custom file that is modified automatically by customization done through emacs
 (setq custom-file "~/.emacs.d/custom.el")
