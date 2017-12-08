@@ -3,3 +3,6 @@ auto-save-list/
 eshell
 /server
 recentf
+request/
+backups/
+/ac-comphist.dat

@@ -234,14 +234,25 @@ Examples:
   (setq git-gutter:update-interval 0.2))
 
 
-;; Emacs IPython Notebook. Jupyter Jupter notebook integration
-(use-package ein)
-
-
 ;; Expand region
 (use-package expand-region
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
+
+
+;; Emacs backups
+(defvar --backup-directory (concat user-emacs-directory "backups"))
+(if (not (file-exists-p --backup-directory))
+    (make-directory --backup-directory t))
+
+(setq backup-directory-alist `(("." . ,--backup-directory)))
+(setq backup-by-copying t  ; don't clobber symlinks
+      delete-old-versions t  ; delete excess backup files silently
+      delete-by-moving-to-trash t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t  ; version numbers for backup files
+      )
 
 
 ;; Set custom file that is modified automatically by customization done through emacs
