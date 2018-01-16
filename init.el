@@ -1,6 +1,14 @@
 (require 'package)
 (setq package-enable-at-startup nil)
-(let* ((no-ssl (and (eq system-type 'windows-nt)
+
+;; Save the OS type to simplify later calls based on OS
+(defvar windows-system nil "If the current system is running under windows")
+(defvar linux-system nil "If the current system is running under linux")
+
+(cond ((eq system-type 'windows-nt) (setq windows-system t))
+      ((eq system-type 'gnu/linux) (setq linux-system t)))
+
+(let* ((no-ssl (and windows-system
 		    (not (gnutls-available-p))))
        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
   (add-to-list 'package-archives (cons "melpa" url) t))
@@ -14,7 +22,7 @@
 (setq debug-on-error t)
 
 
-;; Custom functions	   
+;; Custom functions
 (defun open-init-file ()
   (interactive)
   (find-file user-init-file))
@@ -53,7 +61,21 @@ Examples:
           (lambda (h)
             (push `(add-hook ',(if quoted h (intern (format "%s-hook" h))) ,func) forms))
           (-list hook)))) funcs)
-`(progn ,@forms)))
+    `(progn ,@forms)))
+
+
+;; Functions
+(defun my:select-current-line-and-forward-line (arg)
+  "Select the current line and move the cursor by ARG lines IF
+no region is selected.
+
+If a region is already selected when calling this command, only move
+the cursor by ARG lines."
+  (interactive "p")
+  (when (not (use-region-p))
+    (forward-line 0)
+    (set-mark-command nil))
+  (forward-line arg))
 
 
 ;; Fix C-i being the same as tab
@@ -129,7 +151,7 @@ Examples:
 (use-package org-bullets
   :after org
   :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))	     
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 
 ;; Magit a git porcelain
@@ -153,7 +175,7 @@ Examples:
 (global-set-key (kbd "C-s-k") 'next-line)
 
 ;; Change windows button to super key when running emacs on windows
-(if (eq system-type 'windows-nt)
+(if windows-system
   (setq w32-pass-lwindow-to-system nil
         w32-lwindow-modifier 'super)) ; left Windows key
 
@@ -165,7 +187,7 @@ Examples:
 ;; Neotree
 (global-set-key [f5] 'neotree-toggle)
 
- 
+
 ;; Python
 (use-package python
   :config
@@ -183,11 +205,19 @@ Examples:
       (ding)
       (message "Could not find IPython in environment %s" pyvenv-virtual-env-name))))
 
+;; Send current line to python repl move to next
+(defun eval-line ()
+  (interactive)
+  )
+
+
 ;; Virtual environment management
 (use-package pyvenv
-  :if (eq system-type 'windows-nt)
   :config
-  (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs"))
+  (cond (windows-system (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs")))
+	(linux-system
+	 (setenv "WORKON_HOME" "~/miniconda3/envs")
+	 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
   (pyvenv-mode 1))
 
 
@@ -247,6 +277,20 @@ Examples:
 (use-package expand-region
   :config
   (global-set-key (kbd "C-=") 'er/expand-region))
+
+
+;; Scroll restore
+;; Allows you to scroll up and down a file while maintaining your cursor
+(use-package scroll-restore
+  :init
+  ;; Allow scroll-restore to modify the cursor face
+  (setq scroll-restore-handle-cursor t)
+  ;; Jump back to the original cursor position after scrolling
+  (setq scroll-restore-jump-back t)
+  ;; Recenter the window when restoring the original position
+  (setq scroll-restore-recenter t)
+  :config
+  (scroll-restore-mode 1))
 
 
 ;; Emacs backups
