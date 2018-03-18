@@ -328,6 +328,18 @@ the cursor by ARG lines."
   (scroll-restore-mode 1))
 
 
+;; Emacs Speaks Statistics
+(use-package ess)
+
+
+;; Auto-package-update
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-prompt-before-update t
+	auto-package-update-delete-old-versions t)
+  (auto-package-update-maybe))
+
+
 ;; Emacs backups
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
