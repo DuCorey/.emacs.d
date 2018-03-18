@@ -305,7 +305,7 @@ the cursor by ARG lines."
     nil nil 'center)
 
   ;; Refresh git gutter
-  (setq git-gutter:update-interval 0.2))
+  (setq git-gutter:update-interval 1))
 
 
 ;; Expand region
