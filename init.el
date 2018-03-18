@@ -205,24 +205,27 @@ the cursor by ARG lines."
 ;; Python
 (use-package python
   :config
-  (define-key python-mode-map (kbd "C-c <C-i>") 'run-ipython))
+  (setq python-shell-interpreter "jupyter"
+	python-shell-interpreter-args "console --simple-prompt"))
+;;   (define-key python-mode-map (kbd "C-c <C-i>") 'run-ipython))
+(use-package elpy
+  :config
+  (elpy-enable)
+  (setq elpy-modules (quote
+		      (elpy-module-sane-defaults elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet))))
+
 
 ;; Open an IPython repl
-(defun run-ipython ()
-  (interactive)
-  (if (executable-find "ipython")
-      (progn
-	(run-python "ipython -i")
-	(let ((w (split-window-horizontally)))
-	  (set-window-buffer w "*Python*")))
-    (progn
-      (ding)
-      (message "Could not find IPython in environment %s" pyvenv-virtual-env-name))))
-
-;; Send current line to python repl move to next
-(defun eval-line ()
-  (interactive)
-  )
+;; (defun run-ipython ()
+;;   (interactive)
+;;   (if (executable-find "ipython")
+;;       (progn
+;; 	(run-python "ipython -i")
+;; 	(let ((w (split-window-horizontally)))
+;; 	  (set-window-buffer w "*Python*")))
+;;     (progn
+;;       (ding)
+;;       (message "Could not find IPython in environment %s" pyvenv-virtual-env-name))))
 
 
 ;; Virtual environment management
@@ -247,18 +250,36 @@ the cursor by ARG lines."
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3))
+  (setq company-idle-delay 0.1
+	company-minimum-prefix-length 3
+	company-show-numbers t
+	company-global-modes '(not inferior-python-mode)))
+
+;; Python Autocomplete
+;; (use-package company-anaconda
+;;   :after company
+;;   :init
+;;   (add-hook 'python-mode-hook 'anaconda-mode)
+;;   :config
+;;   (add-to-list 'company-backends '(company-anaconda :with company-capf))
+
+
 
 
 ;; Start screen dashboard
 (use-package dashboard
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  (setq dashboard-items '((recents . 5)
+			  (bookmarks . 5)
+			  (projects . 5)
+			  (agenda . 5))))
 
 
 ;; Projectile project management
-(use-package projectile)
+(use-package projectile
+  :config
+  (setq projectile-mode 1))
 
 
 ;; Git gutter display git changes on the left of the window
