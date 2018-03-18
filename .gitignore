@@ -7,3 +7,7 @@ request/
 backups/
 /ac-comphist.dat
 /elpa
+/.last-package-update-day
+/recentf~
+/projectile.cache
+/projectile-bookmarks.eld

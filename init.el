@@ -27,6 +27,18 @@
   (interactive)
   (find-file user-init-file))
 
+;; Duplicate line
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+(global-set-key (kbd "C-c C-d") 'duplicate-line)
+
 
 ;; Macros
 (defmacro add-hook! (hook &rest func-or-forms)
