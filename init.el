@@ -105,10 +105,6 @@ the cursor by ARG lines."
 (setq use-package-always-ensure t)
 
 
-;; Try package let's you try out a package before installing it
-(use-package try)
-
-
 ;; Which key shows you available key prompts
 (use-package which-key
   :config
@@ -193,10 +189,8 @@ the cursor by ARG lines."
   (setq w32-pass-lwindow-to-system nil
         w32-lwindow-modifier 'super)) ; left Windows key
 
-
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
-
 
 ;; Neotree
 (global-set-key [f5] 'neotree-toggle)
@@ -262,8 +256,6 @@ the cursor by ARG lines."
 ;;   (add-hook 'python-mode-hook 'anaconda-mode)
 ;;   :config
 ;;   (add-to-list 'company-backends '(company-anaconda :with company-capf))
-
-
 
 
 ;; Start screen dashboard
