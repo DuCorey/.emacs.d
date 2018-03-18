@@ -126,12 +126,14 @@ the cursor by ARG lines."
   (load-theme 'doom-one t)
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
-  (doom-themes-neotree-config))
+  (doom-themes-neotree-config)
+  (setq doom-neotree-file-icons t))
 
 
 ;; ShowParenMode
 (show-paren-mode 1)
-(setq show-paren-delay 0)
+(setq show-paren-delay 0
+      show-paren-priority -50)
 
 
 ;; Display the line number for every file
