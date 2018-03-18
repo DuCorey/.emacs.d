@@ -347,6 +347,13 @@ the cursor by ARG lines."
       )
 
 
+;; Custom faces
+;; (custom-set-faces
+;;   '(flymake-errline ((((class color)) (:underline nil))))
+;;   '(flymake-warnline ((((class color)) (:underline nil))))
+;;   '(highlight-indentation-face ((((class color)) (:background "#21242b")))))
+
 ;; Set custom file that is modified automatically by customization done through emacs
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
+
