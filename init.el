@@ -4,9 +4,12 @@
 ;; Save the OS type to simplify later calls based on OS
 (defvar windows-system nil "If the current system is running under windows")
 (defvar linux-system nil "If the current system is running under linux")
+(defvar mac-system nil "If the current system is running under macos")
 
 (cond ((eq system-type 'windows-nt) (setq windows-system t))
-      ((eq system-type 'gnu/linux) (setq linux-system t)))
+      ((eq system-type 'gnu/linux) (setq linux-system t))
+      ((eq system-type 'darwin) (setq mac-system t)))
+
 
 (let* ((no-ssl (and windows-system
 		    (not (gnutls-available-p))))
