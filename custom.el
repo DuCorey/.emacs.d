@@ -5,19 +5,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+   ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default)))
- '(fci-rule-color "#67748F")
- '(jdee-db-active-breakpoint-face-colors (cons "#2E3440" "#80A0C2"))
- '(jdee-db-requested-breakpoint-face-colors (cons "#2E3440" "#A2BF8A"))
- '(jdee-db-spec-breakpoint-face-colors (cons "#2E3440" "#545F76"))
+ '(doom-neotree-file-icons t)
+ '(fci-rule-color "#5B6268")
+ '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
  '(package-selected-packages
    (quote
-    (elpy company-anaconda ess scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package doom-themes)))
- '(vc-annotate-background "#1B2229")
+    (auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich ess solaire-mode elpy doom-themes module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
+ '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
     (cons 20 "#98be65")
