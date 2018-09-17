@@ -8,7 +8,7 @@
 (use-package git-gutter
   :init
   (add-hook! (text-mode prog-mode conf-mode) 'git-gutter-mode)
-  :ensure git-gutter-fringe
+  (require 'git-gutter-fringe)
   :config
   ;; NOTE If you want the git gutter to be on the outside of the margins (rather
   ;; than inside), `fringes-outside-margins' should be non-nil.
@@ -29,7 +29,9 @@
 
 ;; Magit a git porcelain
 (use-package magit
+  :pin melpa-stable
   :bind(("C-x g" . magit-status)))
+
 
 (use-package gitignore-mode)
 

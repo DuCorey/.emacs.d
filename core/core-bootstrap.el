@@ -19,6 +19,8 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
 ;; Bootstrap 'use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
