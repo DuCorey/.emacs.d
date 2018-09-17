@@ -1,4 +1,4 @@
-;;; module-ord.el
+;;; module-org.el -- the many org related configurations
 
 ;;; Commentary:
 
@@ -18,7 +18,10 @@
   (org-src-fontify-natively t)
   ;; Change tab behavior in source code to be like normal major mode
   (org-src-tab-acts-natively t)
-
+  ;; Code minting
+  (org-latex-listings 'minted)
+  (org-latex-minted-options
+   '(("fontsize" "\\scriptsize")))
 
   :config
   ;; Babel languages
@@ -27,6 +30,24 @@
    '((R . t)
      (shell . t)
      (ipython .t)))
+  ;; display/update images in the buffer after I evaluate
+  ;;(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
+  ;; Minted for ipython
+  ;;(add-to-list 'org-latex-minted-langs '(ipython "R"))
+  ;; Did not work fixed in customize directly
+  (require 'ox-latex)
+  (add-to-list 'org-latex-packages-alist '("" "listings"))
+  (add-to-list 'org-latex-packages-alist '("" "color"))
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-pdf-process
+	(mapcar
+	 (lambda (s)
+           (replace-regexp-in-string "%latex " "%latex -shell-escape " s))
+	 org-latex-pdf-process))
+
+  ;; Export languages
+  (require 'ox-beamer)
 
 
   ;; change the look of org-bullets

@@ -15,9 +15,17 @@
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
+ '(org-latex-minted-langs
+   (quote
+    ((emacs-lisp "common-lisp")
+     (cc "c++")
+     (cperl "perl")
+     (shell-script "bash")
+     (caml "ocaml")
+     (ipython "R"))))
  '(package-selected-packages
    (quote
-    (auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich ess solaire-mode elpy doom-themes module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
+    (magit gitignore-mode auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich ess solaire-mode elpy doom-themes module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
  '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
