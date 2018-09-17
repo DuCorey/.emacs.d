@@ -19,6 +19,8 @@
 (setq show-paren-delay 0
       show-paren-priority -50)
 
+;; Line number
+(global-display-line-numbers-mode)
 
 (provide 'core-ui)
 
