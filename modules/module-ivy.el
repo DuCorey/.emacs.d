@@ -54,9 +54,14 @@
     :config
     ;; All the icon support to ivy-rich
     (defun ivy-rich-switch-buffer-icon (candidate)
+      "Try to find the icon for the buffer's `major-mode'.
+If that fails look for an icon for the mode that the `major-mode' is derived from."
       (with-current-buffer
     	  (get-buffer candidate)
-    	(all-the-icons-icon-for-mode major-mode)))
+	(let ((icon (all-the-icons-icon-for-mode major-mode)))
+	  (if (symbolp icon)
+	      (all-the-icons-icon-for-mode 'fundamental-mode)
+	    icon))))
 
     (setq ivy-rich--display-transformers-list
     	  '(ivy-switch-buffer
@@ -72,7 +77,6 @@
     	     (lambda (cand) (get-buffer cand)))))
 
     ;; Add custom icons for various modes that can break ivy-rich
-    (add-to-list 'all-the-icons-mode-icon-alist '(dashboard-mode all-the-icons-fileicon "elisp" :height 1.0 :v-adjust -0.2 :face all-the-icons-dsilver))
     (add-to-list 'all-the-icons-mode-icon-alist '(ess-mode all-the-icons-fileicon "R" :face all-the-icons-lblue))
 
     (ivy-rich-mode 1))
