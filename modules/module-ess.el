@@ -4,13 +4,14 @@
 
 ;;; Code:
 
-;; ESS bug?
-;; This forces loading ess-remote functionality
-(require 'essd-els)
-(require 'ess-site)
-
 (use-package ess
+  :pin melpa-stable
   :config
+  ;; ESS bug?
+  ;; This forces loading ess-remote functionality
+  ;;(require 'essd-els)
+  ;;(require 'ess-site)
+
   (defun R-AL-remote ()
     (interactive)
     (let ((inferior-R-program "/usr/local/anaconda3/envs/AL/bin/R"))
