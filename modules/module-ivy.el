@@ -35,13 +35,6 @@
   :config
   (ivy-mode 1)
 
-  ;; Ivy all the icons
-  (use-package all-the-icons-ivy
-    :config
-    (all-the-icons-ivy-setup)
-    :custom
-    (all-the-icons-ivy-file-commands '(counsel-find-file)))
-
   ;; Ivy-hydra
   (use-package ivy-hydra
     :after (ivy hydra))
@@ -56,12 +49,11 @@
     (defun ivy-rich-switch-buffer-icon (candidate)
       "Try to find the icon for the buffer's `major-mode'.
 If that fails look for an icon for the mode that the `major-mode' is derived from."
-      (with-current-buffer
-    	  (get-buffer candidate)
-	(let ((icon (all-the-icons-icon-for-mode major-mode)))
-	  (if (symbolp icon)
-	      (all-the-icons-icon-for-mode 'fundamental-mode)
-	    icon))))
+      (let ((icon (all-the-icons-icon-for-mode
+		   (buffer-local-value 'major-mode (get-buffer candidate)))))
+	(if (symbolp icon)
+	    (all-the-icons-icon-for-mode 'fundamental-mode :face 'all-the-icons-white)
+	  icon)))
 
     (setq ivy-rich--display-transformers-list
     	  '(ivy-switch-buffer
@@ -88,4 +80,4 @@ If that fails look for an icon for the mode that the `major-mode' is derived fro
 
 (provide 'module-ivy)
 
-;;; module-ivy ends here
+;;; module-ivy.el ends here
