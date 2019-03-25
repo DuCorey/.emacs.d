@@ -8,7 +8,10 @@
   :bind (:map projectile-mode-map
 	 ("C-c p" . projectile-command-map))
   :config
-  (projectile-mode 1))
+  (use-package counsel-projectile
+    :after projectile
+    :config
+    (counsel-projectile-mode 1)))
 
 
 (provide 'module-projectile)
