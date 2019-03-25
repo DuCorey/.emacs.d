@@ -24,6 +24,9 @@
     [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
     nil nil 'center)
 
+  (set-face-foreground 'git-gutter:modified "#da8548")
+  (set-face-foreground 'git-gutter-fr:modified "#da8548")
+
   :custom
   (git-gutter:update-interval 1))  ;; Refresh git gutter
 
