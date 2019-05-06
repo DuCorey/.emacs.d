@@ -31,6 +31,8 @@
 ;;     (set-mark-command nil))
 ;;   (forward-line arg))
 
+;; Comment line
+(global-set-key (kbd "C-c C-#") 'comment-or-uncomment-region)
 
 (provide 'core-defuns)
 

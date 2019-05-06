@@ -9,7 +9,7 @@
   :bind (:map yas-minor-mode-map
   	 ("C-x y i" . yas-insert-snippet)
   	 ("C-x y e" . yas-expand)
-	 ("C-<tab>" . yas-expand)
+;;	 ("C-<tab>" . yas-expand)
   	 ("C-x y n" . yas-new-snippet)
   	 ("C-x y f" . yas-visit-snippet-file)
   	 ("C-x y t" . yas-describe-tables))
