@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package org
+  :ensure org-plus-contrib
   :hook
   ;; Line wrapping in org mode
   (org-mode . (lambda ()
@@ -23,13 +24,24 @@
   (org-latex-minted-options
    '(("fontsize" "\\scriptsize")))
 
+  :bind (("C-c c" . org-capture))
+
   :config
   ;; Babel languages
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((R . t)
      (shell . t)
-     (ipython .t)))
+     (python . t)
+     (jupyter . t)))
+
+  ;; Add R's <- in org source blocks
+  (defun my/org-underscore-command ()
+    (interactive)
+    (or (org-babel-do-key-sequence-in-edit-buffer "_")
+  	(org-self-insert-command 1)))
+  (define-key org-mode-map "_" 'my/org-underscore-command)
+
   ;; display/update images in the buffer after I evaluate
   ;;(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
@@ -49,12 +61,14 @@
   ;; Export languages
   (require 'ox-beamer)
 
+  ;; Easy templates
+  ;;(require 'org-tempo)
 
   ;; change the look of org-bullets
   (use-package org-bullets
     :after org
-    :hook
-    (org-mode-hook . (lambda () (org-bullets-mode 1))))
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
   ;; Async org
   ;; (use-package ob-async
@@ -64,30 +78,22 @@
   ;; 				       'jupyter-R))
 
   ;; Jupyter kernels
-  (use-package ob-ipython
+  (use-package ob-jupyter
     :after org
+    :load-path "packages/ob-jupyter")
+
+
+  (use-package org-drill
+    :ensure nil
     :config
-    ;;; Rewriting the original functions from the package to fix some bugs
-    ;; This rewrites supresses the out in the the results output
-    (defcustom ob-ipython-suppress-execution-count nil
-      "If non-nil do not show the execution count in output."
-      :group 'ob-ipython)
-
-    (defun ob-ipython--process-response (ret fil result-type)
-      (let ((result (cdr (assoc :result ret)))
-	    (output (cdr (assoc :output ret))))
-	(if (eq result-type 'output)
-	    output
-	  (ob-ipython--output output nil)
-	  (s-concat
-	   (if 'ob-ipython-supress-execution-count
-	       ""
-	     (format "# Out[%d]:\n" (cdr (assoc :exec-count ret))))
-	   (s-join "\n" (->> (-map (-partial 'ob-ipython--render fil)
-				   (list (cdr (assoc :value result))
-					 (cdr (assoc :display result))))
-			     (remove-if-not nil)))))))))
-
+    (add-to-list 'org-modules 'org-drill)
+    :custom
+    (org-drill-add-random-noise-to-intervals-p t)
+    (org-drill-hint-seperator "||")
+    (org-drill-left-cloze-delimiter "<[")
+    (org-drill-right-cloze-delimiter "]>")
+    (org-drill-learn-fraction 0.25))
+)
 
 (provide 'module-org)
 
