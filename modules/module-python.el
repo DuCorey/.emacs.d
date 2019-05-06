@@ -5,9 +5,10 @@
 ;;; Code:
 
 (use-package python
-  :custom
-  ;; Use condas root python env
-  (python-shell-interpreter "/home/corey/miniconda3/bin/python"
+ :custom
+ ;; Use conda's root python env
+ ;; This is incompatible with pyvevn
+  (python-shell-interpreter "python"
    python-shell-interpreter-args "console --simple-prompt"))
 
 (use-package elpy
@@ -24,7 +25,8 @@
 	(linux-system
 	 (setenv "WORKON_HOME" "~/miniconda3/envs")
 	 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")))
-  (pyvenv-mode 1))
+  (pyvenv-mode 1)
+  (pyvenv-workon-home))
 ;; TODO fix virtual envs menu to only show up for python files
 
 
