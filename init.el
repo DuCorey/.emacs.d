@@ -40,9 +40,12 @@
 (defvar my/backup-dir (expand-file-name "backups" my/emacs-dir)
   "This directory houses all the backup files")
 
+(defvar my/chinese-dir (expand-file-name "chinese" my/emacs-dir))
+
 ;; add directories to Emacs's load-path
 (add-to-list 'load-path my/core-dir)
 (add-to-list 'load-path my/modules-dir)
+(add-to-list 'load-path my/chinese-dir)
 
 ;;---------------------------------------------------------------------
 ;; Core
@@ -67,6 +70,7 @@
 (require 'module-which-key)
 (require 'module-doom-themes)
 (require 'module-doom-modeline)
+(require 'module-all-the-icons)
 (require 'module-org)
 (require 'module-git)
 (require 'module-haskell)
@@ -82,7 +86,9 @@
 (require 'module-ess)
 (require 'module-auto-package-update)
 (require 'module-yasnippet)
+(require 'module-tabbar)
 
+(require 'josh-chinese)
 
 (message "Ready!")
 

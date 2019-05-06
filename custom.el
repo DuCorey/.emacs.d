@@ -9,7 +9,7 @@
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default)))
+    ("6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default)))
  '(doom-neotree-file-icons t)
  '(fci-rule-color "#5B6268")
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
@@ -23,9 +23,12 @@
      (shell-script "bash")
      (caml "ocaml")
      (ipython "R"))))
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill)))
  '(package-selected-packages
    (quote
-    (magit gitignore-mode auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich ess solaire-mode elpy doom-themes module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
+    (counsel-projectile ess all-the-icons-dired find-file-in-project elpy powerline tabbar org-plus-contrib magit gitignore-mode auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich solaire-mode module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
  '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
