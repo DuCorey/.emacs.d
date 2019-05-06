@@ -21,12 +21,16 @@
 
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
+;; Org mode packages
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
 ;; Bootstrap 'use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 ;; Global ensure for use-package
 (setq use-package-always-ensure t)
