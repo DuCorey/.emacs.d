@@ -6,6 +6,7 @@
 
 ;; Git gutter display git changes on the left of the window if file is being tracked in git
 (use-package git-gutter
+  :ensure git-gutter-fringe
   :init
   (add-hook! (text-mode prog-mode conf-mode) 'git-gutter-mode)
   (require 'git-gutter-fringe)
