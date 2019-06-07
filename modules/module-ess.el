@@ -5,7 +5,6 @@
 ;;; Code:
 
 (use-package ess
-  :pin melpa-stable
   :config
   ;; ESS bug?
   ;; This forces loading ess-remote functionality
@@ -58,8 +57,10 @@
 
   :hook
   ;; Add local keybiding for ess-help when in ess-mode (r files)  or iESS (interactive console)
-  ((ess-mode inferior-ess-mode ess-help-mode) . (lambda () (local-set-key (kbd "C-h C-r") #'ess-help))))
-
+  ;; Restore "_" to <-
+  ((ess-mode inferior-ess-mode ess-help-mode) . (lambda ()
+						  (local-set-key (kbd "C-h C-r") #'ess-help)
+						  (local-set-key (kbd "_") #'ess-insert-assign))))
 
 (provide 'module-ess)
 
