@@ -1,4 +1,4 @@
-;;; module-restart-emacs.el
+;;; module-restart-emacs.el --- allows emacs to restart itself
 
 ;;; Commentary:
 

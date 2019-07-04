@@ -1,4 +1,4 @@
-;;; module-tabber.el
+;;; module-tabber.el --- emacs has tabs
 
 ;;; Commentary: tabbar is a module for showing buffer names in tabs on the top of the screen
 
@@ -33,20 +33,20 @@
   (set-face-attribute 'tabbar-selected-modified nil
 		      :inherit 'tabbar-selected :foreground "#ff6c6b" :box nil)
   (set-face-attribute 'tabbar-button nil
-		      :box nil)
+		      :box nil))
 
 
-  (use-package powerline
-    :after tabbar
-    :config
-    (defvar my/tabbar-height 25)
-    (defvar my/tabbar-left (powerline-wave-right 'tabbar-default nil my/tabbar-height))
-    (defvar my/tabbar-right (powerline-wave-left nil 'tabbar-default my/tabbar-height))
-    (defun my/tabbar-tab-label-function (tab)
-      (powerline-render (list my/tabbar-left
-                              (format " %s  " (car tab))
-                              my/tabbar-right)))
-    (setq tabbar-tab-label-function #'my/tabbar-tab-label-function)))
+(use-package powerline
+  :after tabbar
+  :config
+  (defvar my/tabbar-height 25)
+  (defvar my/tabbar-left (powerline-wave-right 'tabbar-default nil my/tabbar-height))
+  (defvar my/tabbar-right (powerline-wave-left nil 'tabbar-default my/tabbar-height))
+  (defun my/tabbar-tab-label-function (tab)
+    (powerline-render (list my/tabbar-left
+			    (format " %s  " (car tab))
+			    my/tabbar-right)))
+  (setq tabbar-tab-label-function #'my/tabbar-tab-label-function))
 
 (provide 'module-tabbar)
 

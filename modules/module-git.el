@@ -29,14 +29,15 @@
   (set-face-foreground 'git-gutter-fr:modified "#da8548")
 
   :custom
-  (git-gutter:update-interval 1))  ;; Refresh git gutter
+  ;; Refresh git gutter
+  (git-gutter:update-interval 1))
 
 ;; Magit a git porcelain
 (use-package magit
   :pin melpa-stable
   :bind(("C-x g" . magit-status)))
 
-
+;; Mode for editing gitignore files
 (use-package gitignore-mode)
 
 

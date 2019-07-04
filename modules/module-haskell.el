@@ -1,6 +1,7 @@
-;;; module-haskell.el
+;;; module-haskell.el --- haskell major mode
 
 ;;; Commentary:
+;;; For when I code in haskell when I'm feeling brave.
 
 ;;; Code:
 

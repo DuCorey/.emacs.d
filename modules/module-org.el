@@ -4,6 +4,7 @@
 
 ;;; Code:
 
+;; The main org package we also import the contribs for later use
 (use-package org
   :ensure org-plus-contrib
   :hook
@@ -11,7 +12,6 @@
   (org-mode . (lambda ()
 		(visual-line-mode)
 		(org-indent-mode)))
-
   :custom
   ;; Don't prompt for confirmation when evaluating code block
   (org-confirm-babel-evaluate nil)
