@@ -4,13 +4,13 @@
 
 ;;; Code:
 
-(use-package python
- :custom
- ;; Use conda's root python env
- ;; This is incompatible with pyvevn
-  (python-shell-interpreter "python"
-   python-shell-interpreter-args "console --simple-prompt"))
+;; Major mode settings for python
+;; Use conda's root python env
+;; This is incompatible with pyvevn
+(setq python-shell-interpreter "python"
+      python-shell-interpreter-args "console --simple-prompt")
 
+;; elpy adds a lot of modules for working with python
 (use-package elpy
   :config
   (elpy-enable)
