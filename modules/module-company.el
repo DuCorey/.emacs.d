@@ -5,8 +5,8 @@
 ;;; Code:
 
 (use-package company
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
+  :hook
+  (after-init . global-company-mode)
   :custom
   (company-idle-delay 0.1)
   (company-minimum-prefix-length 3)

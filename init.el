@@ -54,7 +54,6 @@
 (message "Loading core...")
 (require 'core-bootstrap)
 (require 'core-defuns)
-(require 'core-lib)
 (require 'core-ui)
 (require 'core-paths)
 (require 'core-misc)
