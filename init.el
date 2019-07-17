@@ -85,9 +85,9 @@
 (require 'module-ess)
 (require 'module-auto-package-update)
 (require 'module-yasnippet)
-(require 'module-tabbar)
+(require 'module-tabs)
 
-(require 'josh-chinese)
+;;(require 'josh-chinese)
 
 (message "Ready!")
 
