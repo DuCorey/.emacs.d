@@ -7,16 +7,15 @@
 (use-package yasnippet
   :after company
   :bind (:map yas-minor-mode-map
-  	 ("C-x y i" . yas-insert-snippet)
-  	 ("C-x y e" . yas-expand)
+  	 ("C-c y i" . yas-insert-snippet)
+  	 ("C-c y e" . yas-expand)
 ;;	 ("C-<tab>" . yas-expand)
-  	 ("C-x y n" . yas-new-snippet)
-  	 ("C-x y f" . yas-visit-snippet-file)
-  	 ("C-x y t" . yas-describe-tables))
-
-  :config
+  	 ("C-c y n" . yas-new-snippet)
+  	 ("C-c y f" . yas-visit-snippet-file)
+  	 ("C-c y t" . yas-describe-tables))
+  :init
   (yas-global-mode 1)
-
+  :config
   ;; Make Yasnippet and company mode work better together
   ;; (advice-add 'company-complete-common :before (lambda () (setq my-company-point (point))))
   ;; (advice-add 'company-complete-common :after (lambda ()
