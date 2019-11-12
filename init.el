@@ -88,6 +88,7 @@
 (require 'module-tabs)
 (require 'module-helpful)
 (require 'module-prescient)
+(require 'module-smartparens)
 
 ;;(require 'josh-chinese)
 
