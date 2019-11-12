@@ -5,7 +5,8 @@
 
 ;;; Code:
 
-(use-package haskell-mode)
+(use-package haskell-mode
+  :defer t)
 
 
 (provide 'module-haskell)

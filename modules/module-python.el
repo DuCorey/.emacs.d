@@ -12,6 +12,7 @@
 
 ;; elpy adds a lot of modules for working with python
 (use-package elpy
+  :defer t
   :config
   (elpy-enable)
   :custom
@@ -20,6 +21,7 @@
 
 ;; Virtual environment management for python
 (use-package pyvenv
+  :defer t
   :config
   (cond (windows-system (setenv "WORKON_HOME" (concat "C:" (getenv "HOMEPATH") "\\Miniconda3\\envs")))
 	(linux-system

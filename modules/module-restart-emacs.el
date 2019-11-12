@@ -4,7 +4,8 @@
 
 ;;; Code:
 
-(use-package restart-emacs)
+(use-package restart-emacs
+  :defer t)
 
 
 (provide 'module-restart-emacs)
