@@ -9,8 +9,8 @@
   :demand
   :config
   (centaur-tabs-mode 1)
-  ;(centaur-tabs-inherit-tabbar-faces)
   (centaur-tabs-headline-match)
+  (centaur-tabs-group-by-projectile-project)
   :bind
   ("C-<tab>" . centaur-tabs-forward)
   ("C-<iso-lefttab>" . centaur-tabs-backward)
@@ -18,13 +18,15 @@
   (centaur-tabs-set-icons t)
   (centaur-tabs-set-bar 'left)
   (centaur-tabs-set-modified-marker t)
+  (centaur-tabs-gray-out-icons 'buffer)
   :hook
   ;; Remove tabs from specific modes
   (dashboard-mode . centaur-tabs-local-mode)
   (org-agenda-mode . centaur-tabs-local-mode)
   (org-journal-mode . centaur-tabs-local-mode)
-  (help-mode . centaur-tabs-local-mode))
-;  (helpful-mode . centaur-tabs-local-mode))
+  (help-mode . centaur-tabs-local-mode)
+  (helpful-mode . centaur-tabs-local-mode)
+  (calculator-mode . centaur-tabs-local-mode))
 
 ;; (use-package tabbar
 ;;   :config
