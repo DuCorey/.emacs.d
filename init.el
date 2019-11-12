@@ -86,6 +86,7 @@
 (require 'module-auto-package-update)
 (require 'module-yasnippet)
 (require 'module-tabs)
+(require 'module-prescient)
 
 ;;(require 'josh-chinese)
 

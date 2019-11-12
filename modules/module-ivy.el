@@ -38,14 +38,9 @@
   :config
   (ivy-mode 1))
 
-;; Ivy-hydra
-(use-package ivy-hydra
-  :ensure hydra
-  :after (ivy hydra))
-
 ;; Ivy-rich for rich displaying in ivy
 (use-package ivy-rich
-  :after ivy
+  :after (ivy counsel)
   :custom
   (ivy-rich-path-style 'abbrev)
   :config
@@ -112,9 +107,6 @@ If CANDIDATE is a dir return empty string."
 	    (ivy-rich-file-size (:width 7))))))
 
   (ivy-rich-mode 1))
-
-;; SMEX sorts M-x by most used
-(use-package smex)
 
 
 (provide 'module-ivy)
