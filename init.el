@@ -87,6 +87,7 @@
 (require 'module-yasnippet)
 (require 'module-tabs)
 (require 'module-helpful)
+(require 'module-multiple-cursors)
 (require 'module-prescient)
 (require 'module-smartparens)
 
