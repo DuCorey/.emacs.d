@@ -84,7 +84,7 @@
 ;;(require 'module-scroll-restore)
 (require 'module-ess)
 (require 'module-auto-package-update)
-(require 'module-yasnippet)
+(require 'module-snippet)
 (require 'module-tabs)
 (require 'module-helpful)
 (require 'module-multiple-cursors)

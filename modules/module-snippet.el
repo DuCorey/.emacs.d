@@ -1,4 +1,4 @@
-;;; module-yasnippet --- code snippets
+;;; module-snippet --- code snippets
 
 ;;; Commentary:
 
@@ -7,12 +7,12 @@
 (use-package yasnippet
   :after company
   :bind (:map yas-minor-mode-map
-  	 ("C-c y i" . yas-insert-snippet)
-  	 ("C-c y e" . yas-expand)
-;;	 ("C-<tab>" . yas-expand)
-  	 ("C-c y n" . yas-new-snippet)
-  	 ("C-c y f" . yas-visit-snippet-file)
-  	 ("C-c y t" . yas-describe-tables))
+	      ("C-c y i" . yas-insert-snippet)
+	      ("C-c y e" . yas-expand)
+	      ;;	 ("C-<tab>" . yas-expand)
+	      ("C-c y n" . yas-new-snippet)
+	      ("C-c y f" . yas-visit-snippet-file)
+	      ("C-c y t" . yas-describe-tables))
   :init
   (yas-global-mode 1)
   :config
@@ -35,6 +35,12 @@
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends)))
 
 
-(provide 'module-yasnippet)
+(use-package auto-yasnippet
+  :after yasnippet
+  :bind (:map yas-minor-mode-map
+	      ("C-c y a e" . aya-expand)
+	      ("C-c y a c" . aya-create)))
+
+(provide 'module-snippet)
 
 ;;; module-yasnippet.el ends here
