@@ -4,8 +4,11 @@
 
 ;;; Code:
 
-(require 'smartparens-config)
-(add-hook 'prog-mode-hook #'smartparens-mode)
+(use-package smartparens
+  :config
+  (require 'smartparens-config)
+  :hook (prog-mode . smartparens-mode))
+
 
 (provide 'module-smartparens)
 
