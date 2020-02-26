@@ -81,7 +81,6 @@
 (require 'module-projectile)
 (require 'module-ivy)
 (require 'module-expand-region)
-;;(require 'module-scroll-restore)
 (require 'module-ess)
 (require 'module-auto-package-update)
 (require 'module-snippet)
