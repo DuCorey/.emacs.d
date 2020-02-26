@@ -35,7 +35,6 @@
 
 ;; Magit a git porcelain
 (use-package magit
-  :pin melpa-stable
   :bind(("C-x g" . magit-status)))
 
 ;; Mode for editing gitignore files
