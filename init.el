@@ -11,6 +11,9 @@
 ;; Init
 ;;---------------------------------------------------------------------
 
+;; Enter debug mode on error
+(setq debug-on-error t)
+
 ;; Save the OS type to simplify later calls based on OS
 (defvar windows-system nil "If the current system is running under windows")
 (defvar linux-system nil "If the current system is running under linux")
@@ -19,10 +22,6 @@
 (cond ((eq system-type 'windows-nt) (setq windows-system t))
       ((eq system-type 'gnu/linux) (setq linux-system t))
       ((eq system-type 'darwin) (setq mac-system t)))
-
-
-;; Enter debug mode on error
-(setq debug-on-error t)
 
 ;;---------------------------------------------------------------------
 ;; Variables and Load Paths
@@ -40,12 +39,12 @@
 (defvar my/backup-dir (expand-file-name "backups" my/emacs-dir)
   "This directory houses all the backup files")
 
-(defvar my/chinese-dir (expand-file-name "chinese" my/emacs-dir))
+;;(defvar my/chinese-dir (expand-file-name "chinese" my/emacs-dir))
 
 ;; add directories to Emacs's load-path
 (add-to-list 'load-path my/core-dir)
 (add-to-list 'load-path my/modules-dir)
-(add-to-list 'load-path my/chinese-dir)
+;;(add-to-list 'load-path my/chinese-dir)
 
 ;;---------------------------------------------------------------------
 ;; Core
