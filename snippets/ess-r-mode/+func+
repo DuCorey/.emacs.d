@@ -2,7 +2,6 @@
 # name: function
 # key: func
 # --
-$1 <- function($2)
-{
-   $0
+$1 <- function($2) {
+    $0
 }

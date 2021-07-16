@@ -11,10 +11,10 @@
   ;;(require 'essd-els)
   ;;(require 'ess-site)
 
-  (defun R-AL-remote ()
-    (interactive)
-    (let ((inferior-R-program "/usr/local/anaconda3/envs/AL/bin/R"))
-      (R)))
+  ;; (defun R-AL-remote ()
+  ;;   (interactive)
+  ;;   (let ((inferior-R-program "/usr/local/anaconda3/envs/AL/bin/R"))
+  ;;     (R)))
 
   ;; (defun R-screen-remote (&optional remote-host)
   ;;   "Connect to the remote-host's screen session running R"
