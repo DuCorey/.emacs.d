@@ -4,6 +4,9 @@
 
 ;;; Code:
 
+;; Ignore GConf settings
+(define-key special-event-map [config-changed-event] 'ignore)
+
 ;; Avoid asking for to follow symbolic link when original file is in VC
 (setq vc-follow-symlinks t)
 

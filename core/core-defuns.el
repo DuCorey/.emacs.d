@@ -34,6 +34,7 @@
 ;; Comment line
 (global-set-key (kbd "C-c C-#") 'comment-or-uncomment-region)
 
+
 (provide 'core-defuns)
 
 ;;; core-defuns.el ends here

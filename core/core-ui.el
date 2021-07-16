@@ -6,10 +6,8 @@
 
 ;;; Code:
 
-
 ;; Display the column number for the position of the cursor
 (column-number-mode t)
-
 
 ;; Remove the scroll bar
 (scroll-bar-mode -1)
@@ -21,6 +19,7 @@
 
 ;; Line number
 (global-display-line-numbers-mode)
+
 
 (provide 'core-ui)
 

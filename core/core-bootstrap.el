@@ -10,6 +10,9 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
+;; Bug with TLS for gnu elpa
+;(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (let* ((no-ssl (and windows-system
 		    (not (gnutls-available-p))))
        (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
