@@ -8,27 +8,25 @@
    ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
  '(column-number-mode t)
  '(custom-safe-themes
-   (quote
-    ("6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default)))
- '(doom-neotree-file-icons t)
+   '("6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default))
+ '(doom-neotree-file-icons t t)
+ '(doom-one-brighter-comments t)
  '(fci-rule-color "#5B6268")
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
+ '(org-agenda-files nil)
  '(org-latex-minted-langs
-   (quote
-    ((emacs-lisp "common-lisp")
+   '((emacs-lisp "common-lisp")
      (cc "c++")
      (cperl "perl")
      (shell-script "bash")
      (caml "ocaml")
-     (ipython "R"))))
+     (ipython "R")))
  '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill)))
+   '(org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill))
  '(package-selected-packages
-   (quote
-    (counsel-projectile ess all-the-icons-dired find-file-in-project elpy powerline tabbar org-plus-contrib magit gitignore-mode auto-indent-mode ob-ipython markdown-mode polymode ob-async smex ivy-rich solaire-mode module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org haskell-mode nlinum which-key try use-package)))
+   '(auto-yasnippet magit centaur-tabs auto-package-update ivy-rich counsel-projectile projectile dashboard elpy neotree haskell-mode git-gutter-fringe org-bullets org-plus-contrib doom-modeline smartparens ivy-prescient company-prescient prescient multiple-cursors org-journal helpful ess all-the-icons-dired powerline tabbar gitignore-mode auto-indent-mode ob-ipython markdown-mode polymode ob-async smex solaire-mode module-doom-modeline company-anaconda scroll-restore restart-emacs expand-region org nlinum which-key try use-package))
  '(vc-annotate-background "#282c34")
  '(vc-annotate-color-map
    (list
