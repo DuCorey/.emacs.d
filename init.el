@@ -66,6 +66,7 @@
 ;;---------------------------------------------------------------------
 
 (message "Loading modules...")
+(require 'module-recentf)
 (require 'module-which-key)
 (require 'module-doom-themes)
 (require 'module-doom-modeline)
