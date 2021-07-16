@@ -6,6 +6,7 @@
 
 ;; The main projectile package
 (use-package projectile
+  :demand
   :bind (:map projectile-mode-map
 	 ("C-c p" . projectile-command-map)))
 
