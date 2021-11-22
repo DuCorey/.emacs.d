@@ -89,6 +89,7 @@
 (require 'module-multiple-cursors)
 (require 'module-prescient)
 (require 'module-smartparens)
+(require 'module-markdown)
 
 ;;(require 'josh-chinese)
 

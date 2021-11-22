@@ -40,7 +40,7 @@
    '((R . t)
      (shell . t)
      (python . t)
-     (jupyter . t)))
+     (js . t)))
 
   ;; Add R's <- in org source blocks
   (defun my/org-underscore-command ()

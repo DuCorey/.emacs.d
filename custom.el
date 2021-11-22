@@ -7,15 +7,17 @@
  '(ansi-color-names-vector
    ["#1B2229" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#DFDFDF"])
  '(column-number-mode t)
+ '(company-show-quick-access t nil nil "Customized with use-package company")
  '(custom-safe-themes
    '("6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "463a24ebf2922855c36637f46c53903a4737cf57038e7a9fba700456e3bd27f2" "18eea36d8ecd6e236d25c4cc22d1a772cd34b32d83356a86d3eaf0865788c426" "90bd0eb20a1cb155b5a076f698b3c72cfe775aa7ea93b7bfbc171eb250db5e20" default))
- '(doom-neotree-file-icons t t)
- '(doom-one-brighter-comments t)
+ '(doom-neotree-file-icons t t nil "Customized with use-package doom-themes")
+ '(doom-one-brighter-comments t nil nil "Customized with use-package doom-themes")
  '(fci-rule-color "#5B6268")
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3f444a"))
  '(org-agenda-files nil)
+ '(org-export-backends '(ascii html icalendar latex md odt))
  '(org-latex-minted-langs
    '((emacs-lisp "common-lisp")
      (cc "c++")
