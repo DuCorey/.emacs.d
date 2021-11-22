@@ -37,10 +37,6 @@
 (use-package magit
   :bind(("C-x g" . magit-status)))
 
-;; Mode for editing gitignore files
-(use-package gitignore-mode
-  :defer t)
-
 
 (provide 'module-git)
 
