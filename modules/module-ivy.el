@@ -71,7 +71,7 @@ If CANDIDATE is a dir return empty string."
 	  (file-attributes candidate)))
       ""))
 
-  (setq ivy-rich--display-transformers-list
+  (setq ivy-rich-display-transformers-list
 	'(ivy-switch-buffer
 	  (:columns
 	   ((ivy-rich-switch-buffer-icon (:width 2))
