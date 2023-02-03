@@ -32,6 +32,29 @@
   (pyvenv-mode 1))
 ;; TODO fix virtual envs menu to only show up for python files
 
+(defvar inject-decorator-history nil "Histor of inject-decorator")
+
+(defun inject-decorator (decorator)
+  "Inject decorator in function"
+  (interactive (list (read-from-minibuffer "Function name: " (car inject-decorator-history) nil nil 'inject-decorator-history)))
+  (left-char)
+  (python-nav-forward-defun)
+  (python-nav-forward-defun)
+  (move-beginning-of-line 1)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command)
+  (insert decorator))
+
+(defun add-arg-to-function ()
+  (interactive)
+  (python-nav-forward-defun)
+  (er/expand-region 1)
+  (let ((region (buffer-substring (region-beginning) (region-end))))
+    (let ((args (split-string region "\\,")))
+      (let ((newargs (setcdr args (push "conn: connection" (cdr args)))))
+	(kill-region)
+	(insert (s-join "," newargs))))))
 
 (provide 'module-python)
 
