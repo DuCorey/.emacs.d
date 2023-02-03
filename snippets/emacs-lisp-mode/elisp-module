@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: elisp-module
+# key: module
+# --
+;;; `(file-name-base (buffer-file-name))` --- $1
+
+;;; Commentary:
+
+;;; Code:
+
+$0
+
+;;; `(file-name-base (buffer-file-name))` ends here
