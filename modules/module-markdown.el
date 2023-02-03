@@ -1,4 +1,4 @@
-;;; module-markdon --- edit markdown files
+;;; module-markdown --- edit markdown files
 
 ;;; Commentary:
 
