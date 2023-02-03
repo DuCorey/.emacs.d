@@ -8,7 +8,9 @@
 (use-package projectile
   :demand
   :bind (:map projectile-mode-map
-	 ("C-c p" . projectile-command-map)))
+	      ("C-c p" . projectile-command-map))
+  :config
+  (setq projectile-indexing-method 'alien))
 
 ;; Integration of counsel with projectile
 (use-package counsel-projectile
