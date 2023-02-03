@@ -90,6 +90,7 @@
 (require 'module-prescient)
 (require 'module-smartparens)
 (require 'module-markdown)
+(require 'module-yaml)
 (require 'module-json)
 
 ;;(require 'josh-chinese)
