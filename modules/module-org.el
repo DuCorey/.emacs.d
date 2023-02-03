@@ -32,6 +32,9 @@
   (org-cycle-seperator-lines 0)
   ;; Increase sub-item indentation
   (org-list-indent-offset 1)
+  ;; Fix org-goto with ivy
+  (org-outline-path-complete-in-steps nil)
+  (org-goto-interface 'outline-path-completion)
   :bind (("C-c c" . org-capture))
   :config
   ;; Babel languages
@@ -89,9 +92,9 @@
 ;;   :after org
 ;;   :load-path "packages/ob-jupyter")
 
-(use-package jupyter
-  :after org
-  :defer t)
+;; (use-package jupyter
+;;   :after org
+;;   :defer t)
 ;; :after ess
 ;; :config
 ;; ;(require 'ess-r-mode)
@@ -119,10 +122,10 @@
   (org-journal-enable-agenda-integration t)
   (org-journal-carryover-items "")
   (org-journal-file-type 'weekly)
-  :hook
+  ;;:hook
   ;; We update the org-agenda files when initializing emacs so the the dashboard mode
   ;; has the right files
-  (after-init . org-journal-update-org-agenda-files)
+  ;;(after-init . org-journal-update-org-agenda-files)
   :config
   (defun org-journal-new-deadline-entry (prefix &optional scheduled-time)
     "Create a new deadline entry in the future."
@@ -139,28 +142,28 @@
   ;; By default the org-journal only looks to the future when updating the files.
   ;; This is inconvenient when todos are set in the past and not brought forward.
   ;; As such we have edited this function to look forever for those files.
-  (eval-after-load "org-journal"
-    '(defun org-journal-update-org-agenda-files ()
-       "Adds the current and future journal files to `org-agenda-files', and cleans
-out past org-journal files."
-       (when org-journal-enable-agenda-integration
-	 (let ((not-org-journal-agenda-files
-		(seq-filter
-		 (lambda (fname)
-		   (not (string-match org-journal-file-pattern fname)))
-		 (org-agenda-files)))
-	       (org-journal-agenda-files
-		(let* ((future (org-journal-read-period 'forever))
-		       (beg (car future))
-		       (end (cdr future)))
-		  ;; TODO(cschwarzgruber): Needs to be adopted for weekly, monthly or yearly journal file type.
-		  ;; We actually would need to limit the file scope, if we only want TODO's for today, and future.
-		  (setcar (cdr beg) (1- (cadr beg)))
-		  (org-journal-search-build-file-list
-		   (org-journal-calendar-date->time beg)
-		   (org-journal-calendar-date->time end)))))
-	   (setq org-agenda-files (append not-org-journal-agenda-files
-  					  org-journal-agenda-files))))))
+;;   (eval-after-load "org-journal"
+;;     '(defun org-journal-update-org-agenda-files ()
+;;        "Adds the current and future journal files to `org-agenda-files', and cleans
+;; out past org-journal files."
+;;        (when org-journal-enable-agenda-integration
+;; 	 (let ((not-org-journal-agenda-files
+;; 		(seq-filter
+;; 		 (lambda (fname)
+;; 		   (not (string-match org-journal-file-pattern fname)))
+;; 		 (org-agenda-files)))
+;; 	       (org-journal-agenda-files
+;; 		(let* ((future (org-journal-read-period 'forever))
+;; 		       (beg (car future))
+;; 		       (end (cdr future)))
+;; 		  ;; TODO(cschwarzgruber): Needs to be adopted for weekly, monthly or yearly journal file type.
+;; 		  ;; We actually would need to limit the file scope, if we only want TODO's for today, and future.
+;; 		  (setcar (cdr beg) (1- (cadr beg)))
+;; 		  (org-journal-search-build-file-list
+;; 		   (org-journal-calendar-date->time beg)
+;; 		   (org-journal-calendar-date->time end)))))
+;; 	   (setq org-agenda-files (append not-org-journal-agenda-files
+;;   					  org-journal-agenda-files))))))
 
   (defun org-journal-save-entry-and-exit()
     "Simple convenience function.

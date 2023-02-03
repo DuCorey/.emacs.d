@@ -10,14 +10,14 @@
   (dashboard-items '((recents . 5)
 		     (bookmarks . 5)
 		     (projects . 5)
-		     (agenda . 5)
-		     (todo . 10)))
+		     (agenda . 5)))
+;		     (todo . 10)))
   (show-week-agenda-p t)
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons t)
   :config
   (require 'org-journal)
-  (org-journal-update-org-agenda-files)
+  ;(org-journal-update-org-agenda-files)
   (dashboard-setup-startup-hook)
 
   (eval-after-load "dashboard"
