@@ -35,7 +35,17 @@
 
 ;; Magit a git porcelain
 (use-package magit
-  :bind(("C-x g" . magit-status)))
+  :bind(("C-x g" . magit-status))
+
+  :config
+  (defun copy-diff-region ()
+    "Copy diff region without + or - markers."
+    (interactive)
+    (deactivate-mark)
+    (let ((text (buffer-substring-no-properties
+		 (region-beginning) (region-end))))
+      (kill-new (replace-regexp-in-string "^[\\+\\-]" "" text))))
+)
 
 
 (provide 'module-git)
