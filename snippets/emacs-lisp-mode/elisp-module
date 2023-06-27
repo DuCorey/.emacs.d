@@ -2,7 +2,7 @@
 # name: elisp-module
 # key: module
 # --
-;;; `(file-name-base (buffer-file-name))` --- $1
+;;; `(file-name-base (buffer-file-name))`.el --- $1
 
 ;;; Commentary:
 
@@ -10,4 +10,6 @@
 
 $0
 
-;;; `(file-name-base (buffer-file-name))` ends here
+(provide '`(file-name-base (buffer-file-name))`)
+
+;;; `(file-name-base (buffer-file-name))`.el ends here
