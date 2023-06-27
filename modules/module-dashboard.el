@@ -5,7 +5,6 @@
 ;;; Code:
 
 (use-package dashboard
-;;  :load-path "packages/emacs-dashboard"
   :custom
   (dashboard-items '((recents . 5)
 		     (bookmarks . 5)
@@ -13,8 +12,10 @@
 		     (agenda . 5)))
 ;		     (todo . 10)))
   (show-week-agenda-p t)
+  (dashboard-icon-type 'all-the-icons)
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons t)
+  (dashboard-projects-backend 'project-el)
   :config
   (require 'org-journal)
   ;(org-journal-update-org-agenda-files)

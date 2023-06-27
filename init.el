@@ -78,7 +78,6 @@
 (require 'module-python)
 (require 'module-company)
 (require 'module-dashboard)
-(require 'module-projectile)
 (require 'module-ivy)
 (require 'module-expand-region)
 (require 'module-ess)
