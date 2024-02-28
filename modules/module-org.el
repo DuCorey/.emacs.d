@@ -6,7 +6,8 @@
 
 ;; The main org package we also import the contribs for later use
 (use-package org
-  :ensure org-plus-contrib
+  :pin gnu
+  :ensure org-contrib
   :hook
   ;; Line wrapping in org mode
   (org-mode . (lambda ()
@@ -43,6 +44,7 @@
    '((R . t)
      (shell . t)
      (python . t)
+     (restclient . t)
      (js . t)))
 
   ;; Add R's <- in org source blocks
@@ -74,6 +76,7 @@
 
 ;; Easy templates
 ;;(require 'org-tempo)
+
 
 ;; change the look of org-bullets
 (use-package org-bullets

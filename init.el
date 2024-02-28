@@ -65,32 +65,51 @@
 ;;---------------------------------------------------------------------
 
 (message "Loading modules...")
+;; Emacs additions
+(require 'module-restart-emacs)
 (require 'module-recentf)
+(require 'module-auto-package-update)
+
+;; Editing
+(require 'module-orderless)
+(require 'module-snippet)
+(require 'module-wgrep)
+
+;; UI/UX
+(require 'module-hydra)
 (require 'module-which-key)
 (require 'module-doom-themes)
 (require 'module-doom-modeline)
 (require 'module-all-the-icons)
-(require 'module-org)
-(require 'module-git)
-(require 'module-haskell)
-(require 'module-restart-emacs)
 (require 'module-neotree)
-(require 'module-python)
-(require 'module-company)
 (require 'module-dashboard)
-(require 'module-ivy)
-(require 'module-expand-region)
-(require 'module-ess)
-(require 'module-auto-package-update)
-(require 'module-snippet)
+(require 'module-vertico)
+(require 'module-consult)
+(require 'module-embark)
+(require 'module-corfu)
 (require 'module-tabs)
 (require 'module-helpful)
 (require 'module-multiple-cursors)
-(require 'module-prescient)
 (require 'module-smartparens)
+(require 'module-expand-region)
+
+
+;; Programming
+(require 'module-tree-sitter)
+(require 'module-git)
+(require 'module-haskell)
+(require 'module-python)
+(require 'module-ess)
 (require 'module-markdown)
 (require 'module-yaml)
+(require 'module-typescript)
 (require 'module-json)
+(require 'module-racket)
+(require 'module-restclient)
+
+;; Org
+(require 'module-org)
+
 
 ;;(require 'josh-chinese)
 

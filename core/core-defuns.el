@@ -19,6 +19,14 @@
   (yank))
 (global-set-key (kbd "C-c C-d") 'duplicate-line)
 
+;; Copy region but keep it highlighted
+(defun kill-ring-save-keep-highlight (beg end)
+  "Keep the region active after the kill"
+  (interactive "r")
+  (prog1 (kill-ring-save beg end)
+    (setq deactivate-mark nil)))
+
+
 ;; (defun my:select-current-line-and-forward-line (arg)
 ;;   "Select the current line and move the cursor by ARG lines IF
 ;; no region is selected.
